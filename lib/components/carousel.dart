@@ -8,9 +8,13 @@ class Carousel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isLandscape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
+    final height = isLandscape ? 150.0 : 200.0;
+
     return CarouselSlider(
       options: CarouselOptions(
-        height: 200.0,
+        height: height,
         autoPlay: true,
         reverse: true,
         enlargeCenterPage: true,
