@@ -4,7 +4,7 @@ class Trip {
   final String price;
   final double rating;
   final String summary;
-  final String includes; // Misalnya: "Makan, Akomodasi"
+  final String includes;
   final String excludes;
   final String termsAndConditions;
   final int totalPax;

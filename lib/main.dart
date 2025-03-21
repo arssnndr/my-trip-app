@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'pages/trip_list_page.dart';
+import 'package:my_trip_app/components/bottom_navbar.dart';
 
 void main() {
   runApp(TripApp());
@@ -13,7 +13,7 @@ class TripApp extends StatelessWidget {
     return MaterialApp(
       title: 'My Trip App',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: TripListPage(),
+      home: BottomNavBar(),
     );
   }
 }
