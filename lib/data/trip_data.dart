@@ -3,7 +3,7 @@ import '../models/trip_model.dart';
 final List<Trip> trips = [
   Trip(
     title: 'Trip Alam Terbuka',
-    photoUrl: 'assets/images/nusa-penida.jpg',
+    photoUrl: 'assets/images/bali.webp',
     price: 'Rp 1.000.000',
     rating: 4.5,
     summary: 'Nikmati keindahan alam yang menenangkan.',
@@ -14,7 +14,7 @@ final List<Trip> trips = [
   ),
   Trip(
     title: 'Trip Privat Eksklusif',
-    photoUrl: 'assets/images/jogja.webp',
+    photoUrl: 'assets/images/prambanan.webp',
     price: 'Rp 2.500.000',
     rating: 4.8,
     summary: 'Pengalaman privat dengan layanan eksklusif.',
@@ -25,7 +25,7 @@ final List<Trip> trips = [
   ),
   Trip(
     title: 'Trip Petualangan Gunung',
-    photoUrl: 'assets/images/bromo.jpeg',
+    photoUrl: 'assets/images/pegunungan.webp',
     price: 'Rp 1.500.000',
     rating: 4.7,
     summary: 'Pendakian seru dengan pemandangan menakjubkan.',
@@ -36,7 +36,7 @@ final List<Trip> trips = [
   ),
   Trip(
     title: 'Trip Wisata Kuliner',
-    photoUrl: 'assets/images/bandung.jpg',
+    photoUrl: 'assets/images/kuliner-indonesia.webp',
     price: 'Rp 1.200.000',
     rating: 4.6,
     summary: 'Jelajahi kuliner khas dengan cita rasa lokal.',
@@ -47,7 +47,7 @@ final List<Trip> trips = [
   ),
   Trip(
     title: 'Trip Pulau Seribu',
-    photoUrl: 'assets/images/pulau-seribu.jpeg',
+    photoUrl: 'assets/images/kepulauan.webp',
     price: 'Rp 2.000.000',
     rating: 4.7,
     summary: 'Eksplorasi keindahan kepulauan seribu yang memukau.',
