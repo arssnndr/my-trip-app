@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_trip_app/pages/trip_list_page.dart';
+import 'package:my_trip_app/pages/list_page.dart'; // Import ListPage
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
@@ -68,10 +69,18 @@ class BottomNavBarState extends State<BottomNavBar> {
   ];
 
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-    _pageController.jumpToPage(index);
+    if (index == 0) {
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context) => ListPage()),
+        (Route<dynamic> route) => false,
+      );
+    } else {
+      setState(() {
+        _selectedIndex = index;
+      });
+      _pageController.jumpToPage(index);
+    }
   }
 
   @override
