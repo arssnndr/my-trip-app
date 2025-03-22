@@ -13,14 +13,21 @@ class TripApp extends StatelessWidget {
     return MaterialApp(
       title: 'My Trip App',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: Navigator(
-        onGenerateRoute: (RouteSettings settings) {
-          return MaterialPageRoute(
-            builder: (BuildContext context) {
-              return HomePage();
-            },
-          );
-        },
+      home: Scaffold(
+        body: Container(
+          color: Colors.blue,
+          child: SafeArea(
+            child: Navigator(
+              onGenerateRoute: (RouteSettings settings) {
+                return MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return HomePage();
+                  },
+                );
+              },
+            ),
+          ),
+        ),
       ),
     );
   }

@@ -13,17 +13,24 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: TextField(
-        controller: searchController,
-        decoration: InputDecoration(
-          hintText: 'Search...',
-          border: InputBorder.none,
-          hintStyle: TextStyle(color: Colors.white),
-          suffixIcon: Icon(Icons.search),
-          suffixIconColor: Colors.white,
+      leading: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Image.asset('assets/images/my-trip-app-logo.png'),
+      ),
+      title: Padding(
+        padding: const EdgeInsets.only(top: 15.0),
+        child: TextField(
+          controller: searchController,
+          decoration: InputDecoration(
+            hintText: 'Search...',
+            border: InputBorder.none,
+            hintStyle: TextStyle(color: Colors.white),
+            suffixIcon: Icon(Icons.search),
+            suffixIconColor: Colors.white,
+          ),
+          style: TextStyle(color: Colors.white),
+          onChanged: onSearchChanged,
         ),
-        style: TextStyle(color: Colors.white),
-        onChanged: onSearchChanged,
       ),
       backgroundColor: Colors.blue,
     );

@@ -92,7 +92,7 @@ class AccountPage extends StatelessWidget {
                     padding: EdgeInsets.all(8),
                   ),
                   child: SvgPicture.asset(
-                    'assets/images/whatsapp-logo.svg',
+                    'assets/icons/whatsapp-logo.svg',
                     width: 40,
                     height: 40,
                   ),
@@ -112,7 +112,7 @@ class AccountPage extends StatelessWidget {
                     padding: EdgeInsets.all(8),
                   ),
                   child: SvgPicture.asset(
-                    'assets/images/github-logo.svg',
+                    'assets/icons/github-logo.svg',
                     width: 40,
                     height: 40,
                   ),
@@ -131,13 +131,13 @@ class AccountPage extends StatelessWidget {
                 SizedBox(height: 12),
                 Text(
                   'bio:',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 16),
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: 2),
                 Text(
                   biodata.bio,
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: 12),
