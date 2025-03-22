@@ -25,6 +25,15 @@ class AccountPage extends StatelessWidget {
     }
   }
 
+  void _launchGithub() async {
+    final Uri githubUri = Uri.parse('https://github.com/arssnndr');
+    if (await canLaunchUrl(githubUri)) {
+      await launchUrl(githubUri);
+    } else {
+      throw 'Could not launch $githubUri';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,6 +79,11 @@ class AccountPage extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: 12),
+                Text(
+                  'whatsapp:',
+                  style: TextStyle(fontSize: 16),
+                  textAlign: TextAlign.center,
+                ),
                 ElevatedButton(
                   onPressed: _launchWhatsApp,
                   style: ElevatedButton.styleFrom(
@@ -80,6 +94,26 @@ class AccountPage extends StatelessWidget {
                   ),
                   child: SvgPicture.asset(
                     'assets/images/whatsapp-logo.svg',
+                    width: 40,
+                    height: 40,
+                  ),
+                ),
+                SizedBox(height: 12),
+                Text(
+                  'github:',
+                  style: TextStyle(fontSize: 16),
+                  textAlign: TextAlign.center,
+                ),
+                ElevatedButton(
+                  onPressed: _launchGithub,
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: Colors.black,
+                    backgroundColor: Colors.white,
+                    shape: CircleBorder(),
+                    padding: EdgeInsets.all(8),
+                  ),
+                  child: SvgPicture.asset(
+                    'assets/images/github-logo.svg',
                     width: 40,
                     height: 40,
                   ),
