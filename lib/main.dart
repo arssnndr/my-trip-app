@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_trip_app/pages/list_page.dart'; // Import ListPage
+import 'package:my_trip_app/pages/home_page.dart';
 
 void main() {
   runApp(TripApp());
@@ -17,7 +17,7 @@ class TripApp extends StatelessWidget {
         onGenerateRoute: (RouteSettings settings) {
           return MaterialPageRoute(
             builder: (BuildContext context) {
-              return ListPage(); // Set initial route to ListPage
+              return HomePage();
             },
           );
         },

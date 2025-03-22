@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_trip_app/pages/trip_list_page.dart';
-import 'package:my_trip_app/pages/list_page.dart'; // Import ListPage
+import 'package:my_trip_app/pages/home_page.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
@@ -72,7 +72,7 @@ class BottomNavBarState extends State<BottomNavBar> {
     if (index == 0) {
       Navigator.pushAndRemoveUntil(
         context,
-        MaterialPageRoute(builder: (context) => ListPage()),
+        MaterialPageRoute(builder: (context) => HomePage()),
         (Route<dynamic> route) => false,
       );
     } else {
