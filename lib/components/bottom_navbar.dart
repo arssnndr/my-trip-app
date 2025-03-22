@@ -79,6 +79,7 @@ class BottomNavBarState extends State<BottomNavBar> {
     return Scaffold(
       body: PageView(
         controller: _pageController,
+        physics: NeverScrollableScrollPhysics(),
         children:
             _widgetOptions.map((Widget widget) {
               return Navigator(
