@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../data/biodata_data.dart';
 
 class AccountPage extends StatelessWidget {
   const AccountPage({super.key});
 
   void _launchURL() async {
-    final Uri url = Uri.parse(
-      'https://drive.google.com/file/d/1jIxZ-1m9aNaUKPtdKfxbO9uO21VwjiIR/view?usp=sharing',
-    );
+    final Uri url = Uri.parse(biodata.googleDriveUrl);
     if (await canLaunchUrl(url)) {
       await launchUrl(url);
     } else {
@@ -17,7 +16,7 @@ class AccountPage extends StatelessWidget {
   }
 
   void _launchWhatsApp() async {
-    final Uri whatsappUri = Uri.parse('https://wa.me/628996852370');
+    final Uri whatsappUri = Uri.parse(biodata.whatsappUrl);
     if (await canLaunchUrl(whatsappUri)) {
       await launchUrl(whatsappUri);
     } else {
@@ -26,7 +25,7 @@ class AccountPage extends StatelessWidget {
   }
 
   void _launchGithub() async {
-    final Uri githubUri = Uri.parse('https://github.com/arssnndr');
+    final Uri githubUri = Uri.parse(biodata.githubUrl);
     if (await canLaunchUrl(githubUri)) {
       await launchUrl(githubUri);
     } else {
@@ -52,7 +51,7 @@ class AccountPage extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 Text(
-                  'Aris Sunandar',
+                  biodata.name,
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 ),
@@ -63,7 +62,7 @@ class AccountPage extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 Text(
-                  'arissunandar399@gmail.com',
+                  biodata.email,
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 ),
@@ -74,7 +73,7 @@ class AccountPage extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 Text(
-                  '+628996852370',
+                  biodata.phone,
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 ),
@@ -125,7 +124,7 @@ class AccountPage extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 Text(
-                  'Klender, Kec. Duren Sawit, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13470',
+                  biodata.address,
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 ),
@@ -137,7 +136,7 @@ class AccountPage extends StatelessWidget {
                 ),
                 SizedBox(height: 2),
                 Text(
-                  'Saya adalah lulusan Universitas Dian Nusantara fakultas Teknik dan Informatika program studi Teknik Informatika konsentrasi bidang ilmu Software Engineer tahun 2023 dengan IPK 3.75, saya pernah bekerja di PT. The Master Steel Manufacturing sebagai Full Stack Web Developer.',
+                  biodata.bio,
                   style: TextStyle(fontSize: 16),
                   textAlign: TextAlign.center,
                 ),
