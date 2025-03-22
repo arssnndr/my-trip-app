@@ -3,34 +3,67 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../data/biodata_data.dart';
 import '../components/header.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:flutter/services.dart'
+    show ByteData, Uint8List, rootBundle, Clipboard, ClipboardData;
+import 'dart:io';
+import 'package:open_file/open_file.dart';
 
-class AboutMePage extends StatelessWidget {
+class AboutMePage extends StatefulWidget {
   const AboutMePage({super.key});
 
-  void _launchURL() async {
-    final Uri url = Uri.parse(biodata.googleDriveUrl);
-    if (await canLaunchUrl(url)) {
-      await launchUrl(url);
+  @override
+  State<AboutMePage> createState() => _AboutMePageState();
+}
+
+class _AboutMePageState extends State<AboutMePage> {
+  bool showGithubLinkText = false;
+  bool showWhatsAppLinkText = false;
+
+  Future<void> _launchUrl() async {
+    final Uri gDriveUri = Uri.parse(biodata.googleDriveUrl);
+    if (await canLaunchUrl(gDriveUri)) {
+      await launchUrl(gDriveUri, mode: LaunchMode.platformDefault);
+      setState(() => showWhatsAppLinkText = false);
     } else {
-      throw 'Could not launch $url';
+      setState(() => showWhatsAppLinkText = true);
+      Clipboard.setData(ClipboardData(text: biodata.googleDriveUrl));
     }
   }
 
-  void _launchWhatsApp() async {
+  Future<void> _openFile() async {
+    final ByteData bytes = await rootBundle.load('assets/files/CV.pdf');
+    final Uint8List list = bytes.buffer.asUint8List();
+
+    final tempDir = await getTemporaryDirectory();
+    final file = await File('${tempDir.path}/file.pdf').create();
+    file.writeAsBytesSync(list);
+
+    final result = await OpenFile.open(file.path);
+    if (result.type != ResultType.done) {
+      _launchUrl();
+    }
+  }
+
+  Future<void> _launchWhatsApp() async {
     final Uri whatsappUri = Uri.parse(biodata.whatsappUrl);
     if (await canLaunchUrl(whatsappUri)) {
-      await launchUrl(whatsappUri);
+      await launchUrl(whatsappUri, mode: LaunchMode.platformDefault);
+      setState(() => showWhatsAppLinkText = false);
     } else {
-      throw 'Could not launch $whatsappUri';
+      setState(() => showWhatsAppLinkText = true);
+      Clipboard.setData(ClipboardData(text: biodata.whatsappUrl));
     }
   }
 
-  void _launchGithub() async {
+  Future<void> _launchGithub() async {
     final Uri githubUri = Uri.parse(biodata.githubUrl);
     if (await canLaunchUrl(githubUri)) {
-      await launchUrl(githubUri);
+      await launchUrl(githubUri, mode: LaunchMode.platformDefault);
+      setState(() => showGithubLinkText = false);
     } else {
-      throw 'Could not launch $githubUri';
+      setState(() => showGithubLinkText = true);
+      Clipboard.setData(ClipboardData(text: biodata.githubUrl));
     }
   }
 
@@ -102,6 +135,12 @@ class AboutMePage extends StatelessWidget {
                     height: 40,
                   ),
                 ),
+                if (showWhatsAppLinkText)
+                  Text(
+                    biodata.whatsappUrl,
+                    style: TextStyle(fontSize: 16, color: Colors.blue),
+                    textAlign: TextAlign.center,
+                  ),
                 SizedBox(height: 12),
                 Text(
                   'github:',
@@ -122,6 +161,12 @@ class AboutMePage extends StatelessWidget {
                     height: 40,
                   ),
                 ),
+                if (showGithubLinkText)
+                  Text(
+                    biodata.githubUrl,
+                    style: TextStyle(fontSize: 16, color: Colors.blue),
+                    textAlign: TextAlign.center,
+                  ),
                 SizedBox(height: 12),
                 Text(
                   'address:',
@@ -148,7 +193,7 @@ class AboutMePage extends StatelessWidget {
                 SizedBox(height: 12),
                 MouseRegion(
                   child: ElevatedButton(
-                    onPressed: _launchURL,
+                    onPressed: _openFile,
                     style: ButtonStyle(
                       overlayColor: WidgetStateProperty.resolveWith<Color?>((
                         Set<WidgetState> states,

@@ -5,6 +5,7 @@ class Biodata {
   final String address;
   final String bio;
   final String googleDriveUrl;
+  final String cvPath;
   final String whatsappUrl;
   final String githubUrl;
 
@@ -15,6 +16,7 @@ class Biodata {
     required this.address,
     required this.bio,
     required this.googleDriveUrl,
+    required this.cvPath,
     required this.whatsappUrl,
     required this.githubUrl,
   });
