@@ -91,7 +91,7 @@ class AccountPage extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 Text(
-                  'KLENDER, KEC. DUREN SAWIT, KOTA JAKARTA TIMUR, DAERAH KHUSUS IBUKOTA JAKARTA 13470',
+                  'Klender, Kec. Duren Sawit, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13470',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 ),
@@ -103,7 +103,7 @@ class AccountPage extends StatelessWidget {
                 ),
                 SizedBox(height: 2),
                 Text(
-                  'SAYA ADALAH LULUSAN UNIVERSITAS DIAN NUSANTARA FAKULTAS TEKNIK DAN INFORMATIKA PROGRAM STUDI TEKNIK INFORMATIKA KONSENTRASI BIDANG ILMU SOFTWARE ENGINEER TAHUN 2023 DENGAN IPK 3.75, SAYA PERNAH BEKERJA DI PT. THE MASTER STEEL MANUFACTURING SEBAGAI FULL STACK WEB DEVELOPER.',
+                  'Saya adalah lulusan Universitas Dian Nusantara fakultas Teknik dan Informatika program studi Teknik Informatika konsentrasi bidang ilmu Software Engineer tahun 2023 dengan IPK 3.75, saya pernah bekerja di PT. The Master Steel Manufacturing sebagai Full Stack Web Developer.',
                   style: TextStyle(fontSize: 16),
                   textAlign: TextAlign.center,
                 ),

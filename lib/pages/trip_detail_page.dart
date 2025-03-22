@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:photo_view/photo_view.dart';
 import '../models/trip_model.dart';
 
 class TripDetailPage extends StatelessWidget {
@@ -15,11 +16,33 @@ class TripDetailPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset(
-              trip.photoUrl,
-              width: double.infinity,
-              height: 300,
-              fit: BoxFit.cover,
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder:
+                        (context) =>
+                            FullScreenImagePage(imageUrl: trip.photoUrl),
+                  ),
+                );
+              },
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Image.asset(
+                    trip.photoUrl,
+                    width: double.infinity,
+                    height: 300,
+                    fit: BoxFit.cover,
+                  ),
+                  Icon(
+                    Icons.zoom_in,
+                    color: Color.fromRGBO(255, 255, 255, 0.7),
+                    size: 50,
+                  ),
+                ],
+              ),
             ),
             SizedBox(height: 16),
             Text(
@@ -71,6 +94,37 @@ class TripDetailPage extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class FullScreenImagePage extends StatelessWidget {
+  final String imageUrl;
+
+  const FullScreenImagePage({super.key, required this.imageUrl});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: Stack(
+        children: [
+          PhotoView(
+            imageProvider: AssetImage(imageUrl),
+            backgroundDecoration: BoxDecoration(color: Colors.black),
+          ),
+          Positioned(
+            top: 40,
+            right: 20,
+            child: IconButton(
+              icon: Icon(Icons.close, color: Colors.white, size: 30),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+          ),
+        ],
       ),
     );
   }
