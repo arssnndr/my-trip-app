@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:photo_view/photo_view.dart';
 import '../models/trip_model.dart';
+import '../components/full_screen_image.dart';
 
 class TripDetailPage extends StatelessWidget {
   final Trip trip;
@@ -22,8 +22,7 @@ class TripDetailPage extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder:
-                        (context) =>
-                            FullScreenImagePage(imageUrl: trip.photoUrl),
+                        (context) => FullScreenImage(imageUrl: trip.photoUrl),
                   ),
                 );
               },
@@ -94,37 +93,6 @@ class TripDetailPage extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class FullScreenImagePage extends StatelessWidget {
-  final String imageUrl;
-
-  const FullScreenImagePage({super.key, required this.imageUrl});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
-      body: Stack(
-        children: [
-          PhotoView(
-            imageProvider: AssetImage(imageUrl),
-            backgroundDecoration: BoxDecoration(color: Colors.black),
-          ),
-          Positioned(
-            top: 40,
-            right: 20,
-            child: IconButton(
-              icon: Icon(Icons.close, color: Colors.white, size: 30),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
-          ),
-        ],
       ),
     );
   }
