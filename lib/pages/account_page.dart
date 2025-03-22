@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../data/biodata_data.dart';
+import '../components/header.dart';
 
 class AccountPage extends StatelessWidget {
   const AccountPage({super.key});
@@ -36,7 +37,11 @@ class AccountPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('My Account')),
+      appBar: Header(
+        searchController: TextEditingController(),
+        onSearchChanged: (String value) {},
+        title: 'My Account',
+      ),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
