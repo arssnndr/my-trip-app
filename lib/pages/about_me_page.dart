@@ -170,7 +170,7 @@ class _AboutMePageState extends State<AboutMePage> {
                 SizedBox(height: 12),
                 Text(
                   'address:',
-                  style: TextStyle(fontSize: 20),
+                  style: TextStyle(fontSize: 16),
                   textAlign: TextAlign.center,
                 ),
                 Text(
