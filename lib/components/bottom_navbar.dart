@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:my_trip_app/pages/trip_list_page.dart';
-import 'package:my_trip_app/pages/home_page.dart';
 import 'package:my_trip_app/pages/account_page.dart';
 
 class BottomNavBar extends StatefulWidget {
@@ -54,18 +53,10 @@ class BottomNavBarState extends State<BottomNavBar> {
   ];
 
   void _onItemTapped(int index) {
-    if (index == 0) {
-      Navigator.pushAndRemoveUntil(
-        context,
-        MaterialPageRoute(builder: (context) => HomePage()),
-        (Route<dynamic> route) => false,
-      );
-    } else {
-      setState(() {
-        _selectedIndex = index;
-      });
-      _pageController.jumpToPage(index);
-    }
+    setState(() {
+      _selectedIndex = index;
+    });
+    _pageController.jumpToPage(index);
   }
 
   @override
@@ -80,14 +71,7 @@ class BottomNavBarState extends State<BottomNavBar> {
       body: PageView(
         controller: _pageController,
         physics: NeverScrollableScrollPhysics(),
-        children:
-            _widgetOptions.map((Widget widget) {
-              return Navigator(
-                onGenerateRoute: (settings) {
-                  return MaterialPageRoute(builder: (context) => widget);
-                },
-              );
-            }).toList(),
+        children: _widgetOptions,
         onPageChanged: (index) {
           setState(() {
             _selectedIndex = index;

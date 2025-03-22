@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_trip_app/pages/home_page.dart';
+import 'package:my_trip_app/pages/trip_list_page.dart';
+import 'package:my_trip_app/components/bottom_navbar.dart';
 
 void main() {
   runApp(TripApp());
@@ -13,19 +14,20 @@ class TripApp extends StatelessWidget {
     return MaterialApp(
       title: 'My Trip App',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: Scaffold(
-        body: Container(
-          color: Colors.blue,
-          child: SafeArea(
-            child: Navigator(
+      home: Container(
+        color: Colors.blue,
+        child: SafeArea(
+          child: Scaffold(
+            body: Navigator(
               onGenerateRoute: (RouteSettings settings) {
                 return MaterialPageRoute(
                   builder: (BuildContext context) {
-                    return HomePage();
+                    return TripListPage();
                   },
                 );
               },
             ),
+            bottomNavigationBar: BottomNavBar(),
           ),
         ),
       ),
