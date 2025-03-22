@@ -4,8 +4,8 @@ import 'package:url_launcher/url_launcher.dart';
 import '../data/biodata_data.dart';
 import '../components/header.dart';
 
-class AccountPage extends StatelessWidget {
-  const AccountPage({super.key});
+class AboutMePage extends StatelessWidget {
+  const AboutMePage({super.key});
 
   void _launchURL() async {
     final Uri url = Uri.parse(biodata.googleDriveUrl);
@@ -40,7 +40,7 @@ class AccountPage extends StatelessWidget {
       appBar: Header(
         searchController: TextEditingController(),
         onSearchChanged: (String value) {},
-        title: 'My Account',
+        title: 'About Me',
       ),
       body: Center(
         child: Padding(

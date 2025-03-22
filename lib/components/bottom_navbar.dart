@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_trip_app/pages/trip_list_page.dart';
-import 'package:my_trip_app/pages/account_page.dart';
+import 'package:my_trip_app/pages/about_me_page.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
@@ -49,7 +49,7 @@ class BottomNavBarState extends State<BottomNavBar> {
         );
       },
     ),
-    AccountPage(),
+    AboutMePage(),
   ];
 
   void _onItemTapped(int index) {
@@ -91,7 +91,7 @@ class BottomNavBarState extends State<BottomNavBar> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.account_circle),
-            label: 'Account',
+            label: 'About Me',
           ),
         ],
         currentIndex: _selectedIndex,
