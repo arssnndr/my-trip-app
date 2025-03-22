@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_trip_app/pages/trip_list_page.dart';
 import 'package:my_trip_app/pages/home_page.dart';
+import 'package:my_trip_app/pages/account_page.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
@@ -49,23 +50,7 @@ class BottomNavBarState extends State<BottomNavBar> {
         );
       },
     ),
-    OrientationBuilder(
-      builder: (context, orientation) {
-        return Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(
-                'assets/images/under-construction.gif',
-                width: orientation == Orientation.landscape ? 300 : null,
-              ),
-              const SizedBox(height: 10),
-              const Text('"Account" Page is Under Construction...'),
-            ],
-          ),
-        );
-      },
-    ),
+    AccountPage(),
   ];
 
   void _onItemTapped(int index) {
